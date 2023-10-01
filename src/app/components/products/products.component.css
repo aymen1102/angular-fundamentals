@@ -1,0 +1,8 @@
+.custom-form-inline {
+    display: flex;
+    align-items: center;
+}
+
+.custom-form-inline input, .custom-form-inline button {
+    margin-right: 10px;
+}
