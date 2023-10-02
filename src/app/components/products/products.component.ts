@@ -1,8 +1,9 @@
+import { EventDriverService } from './../../state/event.driver.service';
 import { Observable, catchError, map, of, startWith } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { ProductsService } from './../../services/products.service';
-import { Component } from '@angular/core';
-import { AppDataState, DataStateEnum } from 'src/app/state/product.state';
+import { Component, OnInit } from '@angular/core';
+import { ActionEvent, AppDataState, DataStateEnum, ProductActionsTypes } from 'src/app/state/product.state';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,15 +11,50 @@ import { Router } from '@angular/router';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit{
 
   products$: Observable<AppDataState<Product[]>> | null = null;
   readonly DataStateEnum = DataStateEnum;
 
   constructor(
     private productsService : ProductsService,
+    private eventDriverService : EventDriverService,
     private router: Router
   ) {}
+
+  ngOnInit(): void {
+    this.eventDriverService.sourceEventObservable.subscribe((actionEvent: ActionEvent) => {
+      this.onActionEvent(actionEvent);
+    });
+  }
+
+  onActionEvent($event: ActionEvent) {
+    switch ($event.type) {
+      case ProductActionsTypes.GET_ALL_PRODUCTS:
+        this.onGetAllProducts(); break;
+
+      case ProductActionsTypes.GET_SELECTED_PRODUCTS:
+        this.onGetSelectedProduct(); break;
+
+      case ProductActionsTypes.GET_AVAILABLE_PRODUCTS:
+        this.onGetAvailableProducts(); break;
+
+      case ProductActionsTypes.NEW_PRODUCT:
+        this.onNewProduct(); break;
+
+      case ProductActionsTypes.SEARCH_PRODUCTS:
+        this.onSearch($event.payload); break;
+
+      case ProductActionsTypes.DELETE_PRODUCT:
+        this.onDeleteProduct($event.payload);  break;
+
+      case ProductActionsTypes.EDIT_PRODUCT:
+        this.onEditProduct($event.payload);  break;
+
+      case ProductActionsTypes.SELECT_PRODUCT:
+        this.onSelectProduct($event.payload);
+    }
+  }
 
   onGetAllProducts() {
     this.products$ = this.productsService.getAllProducts()

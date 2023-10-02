@@ -1,0 +1,26 @@
+<tbody *ngIf="product">
+    <tr>
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.selected}}</td>
+        <td><span [ngClass]="product.available ? 'fa fa-check text-success': ''"></span></td>
+        <td>
+            <button class="btn btn-sm" [ngClass]="product.selected?'btn-success':'btn-danger'">
+                <span *ngIf="product.selected" (click)="onSelectProduct(product)">Unselect</span>
+                <span *ngIf="!product.selected" (click)="onSelectProduct(product)">Select</span>
+            </button>
+        </td>
+        <td>
+            <button (click)="onDeleteProduct(product)" class="btn btn-danger trash">
+                <span class="fa fa-trash-o"></span>
+            </button>
+        </td>
+        <td>
+            <button (click)="onEditProduct(product)" class="btn btn-danger">
+                <span class="fa fa-edit"></span>
+            </button>
+        </td>
+    </tr>
+</tbody>

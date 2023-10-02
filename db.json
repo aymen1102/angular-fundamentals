@@ -2,10 +2,10 @@
   "products": [
     {
       "id": 2,
-      "name": "Printer",
+      "name": "Printerr",
       "price": 300,
       "quantity": 100,
-      "selected": true,
+      "selected": false,
       "available": false
     },
     {
@@ -17,12 +17,12 @@
       "available": false
     },
     {
-      "name": "Mouse",
-      "price": "15",
-      "quantity": "200",
+      "id": 5,
+      "name": "Mousee",
+      "price": "20",
+      "quantity": "1",
       "selected": true,
-      "available": true,
-      "id": 5
+      "available": true
     }
   ]
 }
