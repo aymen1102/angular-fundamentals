@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
+    this.onGetAllProducts();
     this.eventDriverService.sourceEventObservable.subscribe((actionEvent: ActionEvent) => {
       this.onActionEvent(actionEvent);
     });

@@ -5,7 +5,7 @@
       "name": "Printerr",
       "price": 300,
       "quantity": 100,
-      "selected": false,
+      "selected": true,
       "available": false
     },
     {
@@ -13,7 +13,7 @@
       "name": "Smartphone",
       "price": 1200,
       "quantity": 100,
-      "selected": true,
+      "selected": false,
       "available": false
     },
     {
