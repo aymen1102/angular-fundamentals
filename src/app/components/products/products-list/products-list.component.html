@@ -15,10 +15,10 @@
                         <th scope="col">Available</th>
                     </tr>
                 </thead>
-                <app-product-item *ngFor="let product of result.data"
-                    [product]="product"
-                    style="display: contents;"
-                ></app-product-item>
+                <tbody>
+                    <app-product-item *ngFor="let product of result.data" [product]="product"
+                        style="display: contents;"></app-product-item>
+                </tbody>
             </table>
         </ng-container>
         <ng-container *ngSwitchCase="DataStateEnum.ERROR">
