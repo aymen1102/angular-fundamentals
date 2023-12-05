@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class StatsComponent {
 
-  counter: number = 0;
+  counter = 0;
 
   constructor(private eventDriverService:  EventDriverService) {
     this.eventDriverService.sourceEventObservable.subscribe(data => {

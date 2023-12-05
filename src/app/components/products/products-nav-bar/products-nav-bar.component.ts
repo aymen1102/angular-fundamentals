@@ -1,6 +1,6 @@
 import { EventDriverService } from './../../../state/event.driver.service';
-import { ActionEvent, ProductActionsTypes } from './../../../state/product.state';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ProductActionsTypes } from './../../../state/product.state';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-products-nav-bar',

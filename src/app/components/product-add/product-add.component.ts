@@ -12,7 +12,7 @@ import { ProductActionsTypes } from 'src/app/state/product.state';
 export class ProductAddComponent implements OnInit {
   
   productFormGroup?: FormGroup;
-  submitted: boolean = false;
+  submitted = false;
 
   constructor(
     private productsService: ProductsService,
@@ -38,6 +38,6 @@ export class ProductAddComponent implements OnInit {
       });
       alert(`The product ${data.name} is created successfully !`);
     })
-  };
+  }
 
 }

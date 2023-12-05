@@ -1,8 +1,7 @@
-import { ProductActionsTypes } from './../../../state/product.state';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
-import { ActionEvent, AppDataState, DataStateEnum } from 'src/app/state/product.state';
+import { AppDataState, DataStateEnum } from 'src/app/state/product.state';
 
 @Component({
   selector: 'app-products-list',

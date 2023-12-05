@@ -6,7 +6,7 @@ import { Product } from "../model/product.model";
 @Injectable({providedIn: "root"})
 export class ProductsService {
  
-    public host: string = "http://localhost:3000";
+    public host = "http://localhost:3000";
 
     constructor(private http: HttpClient) {
 

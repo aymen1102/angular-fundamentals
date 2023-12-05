@@ -1,7 +1,7 @@
 import { EventDriverService } from './../../../../state/event.driver.service';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/model/product.model';
-import { ActionEvent, AppDataState, ProductActionsTypes } from 'src/app/state/product.state';
+import { ProductActionsTypes } from 'src/app/state/product.state';
 
 @Component({
   selector: 'app-product-item',
